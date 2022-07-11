@@ -1,10 +1,18 @@
 let botaoDespesa = document.getElementById('botao-despesa')
 let botaoReceita = document.getElementById('botao-receita')
 
-botaoDespesa.addEventListener('click', () => {
-    prompt('Qual a sua despesa?')
-})
+let expenseList = []
+let revenueList = []
 
-botaoReceita.addEventListener('click', () => {
-    prompt('Qual a sua receita?')
+botaoDespesa.addEventListener('click', () => {
+
+    let descriptionExpense = document.getElementById('descriptionExpense').value
+    let expenseValue = document.getElementById('expenseValue').value
+
+    document.getElementById('value').innerHTML = descriptionExpense
+    document.getElementById('description').innerHTML = expenseValue
+
+    expenseList.push(descriptionExpense, expenseValue)
+    console.log(expenseList)
+
 })
