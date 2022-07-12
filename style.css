@@ -9,6 +9,8 @@
 :root{
   --bg-camp: #F5F6FA;
   --bg-camp-second: #b4b4b4;
+
+  --color-default: #E02B57;
 }
 
 .pagina {
@@ -38,7 +40,9 @@
 
   border-radius: 10px;
 
-  background-color: var(--bg-camp-second);
+  background-color: var(--color-default );
+
+  animation: animando-menu .3s;
 }
 
 #closeModal{
@@ -65,6 +69,12 @@
   border-radius: 5px;
 }
 
+.modal div p{
+  color: white;
+
+  font-weight: bold;
+}
+
 .modal button{
   border: none;
 
@@ -78,8 +88,21 @@
 
   cursor: pointer;
 
-  background-color: #E02B57;
-  color: #fff;
+  background-color: var(--bg-camp);
+  color: var(--color-default);
+}
+
+/* Animando Modal */
+
+@keyframes animando-menu{
+  0%{
+      opacity: 0;
+      transform: translate3d(110px, 0, 0);
+  }
+  100%{
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+  }
 }
 
 .conteudo {
