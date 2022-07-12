@@ -5,7 +5,8 @@ let closeModalButton = document.getElementById('closeModal')
 
 let addingExpense = document.getElementById('addingExpense')
 
-let addingWin = document.getElementById('addingWin')
+let addingEarnings = document.getElementById('addingWin')
+let closeModalEarnings = document.querySelector('.closeModalEarnings')
 
 let expenseList = []
 let revenueList = []
@@ -45,12 +46,16 @@ botaoDespesa.addEventListener('click', () => {
 
 /* Receita */
 function closeModalReceita(){
-    let modalExpense = document.querySelector('.mdoal-receita')
+    let modalExpense = document.querySelector('.modal-receita') 
 
     modalExpense.style.display = 'none'
 }
 
-addingWin.addEventListener('click', () => {
+closeModalEarnings.addEventListener('click', () => {
+    closeModalReceita()
+})
+
+addingEarnings.addEventListener('click', () => {
     let descriptionWin = document.getElementById('descriptionWin').value
     let winValue = document.getElementById('winValue').value
 
@@ -64,7 +69,7 @@ addingWin.addEventListener('click', () => {
 })
 
 botaoReceita.addEventListener('click', () => {
-    let modalExpense = document.querySelector('.mdoal-receita')
+    let modalExpense = document.querySelector('.modal-receita')
 
     modalExpense.style.display = 'flex'
 })
