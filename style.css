@@ -92,6 +92,17 @@
   color: var(--color-default);
 }
 
+.head-modal{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+
+  align-items: center;
+
+  gap: 25rem;
+
+}
+
 /* Animando Modal */
 
 @keyframes animando-menu{
