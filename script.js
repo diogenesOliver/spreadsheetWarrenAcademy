@@ -21,7 +21,7 @@ function openModal() {
 
 function addingExpenseToList() {
     let descricaoDaDespesa = document.getElementById('descriptionExpense').value
-    let valorDaDespesa = parseInt(document.getElementById('expenseValue').value)
+    let valorDaDespesa = parseFloat(document.getElementById('expenseValue').value.replace(',', '.'))
 
     let expenseElement = `
     <tr id="information">
@@ -78,7 +78,7 @@ function openModalRevenue() {
 
 function addingRevenueToList() {
     let descriptionRevenue = document.getElementById('descriptionWin').value
-    let valueRevenue = parseInt(document.getElementById('winValue').value)
+    let valueRevenue = parseFloat(document.getElementById('winValue').value.replace(',', '.'))
 
     let revenueElement = `
     <tr id="information">
