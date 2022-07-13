@@ -2,12 +2,10 @@ let botaoDespesa = document.getElementById('botao-despesa')
 let botaoReceita = document.getElementById('botao-receita')
 
 let closeModalButton = document.getElementById('closeModal')
-
-let addingExpense = document.getElementById('addingExpense')
-
-let addingEarnings = document.getElementById('addingWin')
 let closeModalEarnings = document.querySelector('.closeModalEarnings')
 
+let addingExpense = document.getElementById('addingExpense')
+let addingEarnings = document.getElementById('addingWin')
 
 /* Despesas - Modal*/
 
@@ -40,10 +38,14 @@ function addingExpenseToList() {
         valorDaDespesa
     }
 
-    document.getElementById('lista-transacoes-conteudo').innerHTML += expenseElement
+    if (isNaN(informacoesDaDespesa.valorDaDespesa)) {
+        alert('Digite apenas númeos neste campo')
+    } else {
+        document.getElementById('lista-transacoes-conteudo').innerHTML += expenseElement
 
-    listaDeDespesas.push(informacoesDaDespesa)
-    console.log(listaDeDespesas)
+        listaDeDespesas.push(informacoesDaDespesa)
+        console.log(listaDeDespesas)
+    }
 }
 
 
@@ -93,10 +95,15 @@ function addingRevenueToList() {
         valueRevenue
     }
 
-    document.getElementById('lista-transacoes-conteudo').innerHTML += revenueElement
 
-    listaDeReceita.push(informacoesDaReceita)
-    console.log(listaDeReceita)
+    if (isNaN(informacoesDaReceita.valueRevenue)) {
+        alert('Digite apenas númeos neste campo')
+    } else {
+        document.getElementById('lista-transacoes-conteudo').innerHTML += revenueElement
+
+        listaDeReceita.push(informacoesDaReceita)
+        console.log(listaDeReceita)
+    }
 }
 
 closeModalEarnings.addEventListener('click', () => {
