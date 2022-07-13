@@ -6,7 +6,7 @@
   margin: 0 auto;
 }
 
-:root{
+:root {
   --bg-camp: #F5F6FA;
   --bg-camp-second: #b4b4b4;
 
@@ -23,7 +23,7 @@
   justify-content: space-between;
 }
 
-.modal{
+.modal {
   position: absolute;
 
   display: none;
@@ -40,12 +40,12 @@
 
   border-radius: 10px;
 
-  background-color: var(--color-default );
+  background-color: var(--color-default);
 
   animation: animando-menu .3s;
 }
 
-#closeModal{
+#closeModal {
   float: right;
 
   font-size: 20px;
@@ -54,11 +54,11 @@
   font-weight: bold;
 }
 
-.modal div{
+.modal div {
   width: 100%;
 }
 
-.modal div input{
+.modal div input {
   border: none;
 
   height: 40px;
@@ -69,13 +69,14 @@
   border-radius: 5px;
 }
 
-.modal div p, h2{
+.modal div p,
+h2 {
   color: white;
 
   font-weight: bold;
 }
 
-.modal button{
+.modal button {
   border: none;
 
   font-weight: bold;
@@ -92,7 +93,7 @@
   color: var(--color-default);
 }
 
-.head-modal{
+.head-modal {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -105,14 +106,15 @@
 
 /* Animando Modal */
 
-@keyframes animando-menu{
-  0%{
-      opacity: 0;
-      transform: translate3d(110px, 0, 0);
+@keyframes animando-menu {
+  0% {
+    opacity: 0;
+    transform: translate3d(110px, 0, 0);
   }
-  100%{
-      opacity: 1;
-      transform: translate3d(0, 0, 0);
+
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
   }
 }
 
@@ -207,6 +209,7 @@ h1 {
 }
 
 @media only screen and (max-width: 600px) {
+
   .botoes,
   .botoes button {
     width: 100%;
