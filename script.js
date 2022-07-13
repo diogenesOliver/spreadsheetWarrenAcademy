@@ -8,16 +8,44 @@ let addingExpense = document.getElementById('addingExpense')
 let addingEarnings = document.getElementById('addingWin')
 let closeModalEarnings = document.querySelector('.closeModalEarnings')
 
-let expenseList = []
-let revenueList = []
 
-/* Despesas */
+/* Despesas - Modal*/
 
-function closeModal(){
+function closeModal() {
     let modalExpense = document.querySelector('.modal')
-
     modalExpense.style.display = 'none'
 }
+
+function openModal() {
+    let modalExpense = document.querySelector('.modal')
+    modalExpense.style.display = 'flex'
+}
+
+function addingExpenseToList() {
+    let descricaoDaDespesa = document.getElementById('descriptionExpense').value
+    let valorDaDespesa = parseInt(document.getElementById('expenseValue').value)
+
+    let expenseElement = `
+    <tr id="information">
+        <td class='coluna-descricao'> ${descricaoDaDespesa} </td>
+        <td class='coluna-categoria'>Despesa</td>
+        <td class='coluna-valor'>R$ ${valorDaDespesa} </td>
+    </tr>
+  `
+
+    let listaDeDespesas = []
+
+    let informacoesDaDespesa = {
+        descricaoDaDespesa,
+        valorDaDespesa
+    }
+
+    document.getElementById('lista-transacoes-conteudo').innerHTML += expenseElement
+
+    listaDeDespesas.push(informacoesDaDespesa)
+    console.log(listaDeDespesas)
+}
+
 
 closeModalButton.addEventListener('click', () => {
     closeModal()
@@ -25,53 +53,61 @@ closeModalButton.addEventListener('click', () => {
 
 addingExpense.addEventListener('click', () => {
 
-    let descriptionExpense = document.getElementById('descriptionExpense').value
-    let expenseValue = document.getElementById('expenseValue').value
-
-    document.getElementById('description').innerHTML = descriptionExpense
-    document.getElementById('value').innerHTML = expenseValue
-
-    expenseList.push(descriptionExpense, expenseValue)
-    console.log(expenseList)
-
+    addingExpenseToList()
     closeModal()
 
 })
 
 botaoDespesa.addEventListener('click', () => {
-    let modalExpense = document.querySelector('.modal')
-
-    modalExpense.style.display = 'flex'
+    openModal()
 })
 
-/* Receita */
-function closeModalReceita(){
-    let modalExpense = document.querySelector('.modal-receita') 
+/* Receita - Modal*/
 
+function closeModalRevenue() {
+    let modalExpense = document.querySelector('.modal-receita')
     modalExpense.style.display = 'none'
 }
 
+function openModalRevenue() {
+    let modalExpense = document.querySelector('.modal-receita')
+    modalExpense.style.display = 'flex'
+}
+
+function addingRevenueToList() {
+    let descriptionRevenue = document.getElementById('descriptionWin').value
+    let valueRevenue = parseInt(document.getElementById('winValue').value)
+
+    let revenueElement = `
+    <tr id="information">
+        <td class='coluna-descricao'> ${descriptionRevenue} </td>
+        <td class='coluna-categoria'>Receita</td>
+        <td class='coluna-valor'>R$ ${valueRevenue} </td>
+    </tr>
+  `
+
+    let listaDeReceita = []
+
+    let informacoesDaReceita = {
+        descriptionRevenue,
+        valueRevenue
+    }
+
+    document.getElementById('lista-transacoes-conteudo').innerHTML += revenueElement
+
+    listaDeReceita.push(informacoesDaReceita)
+    console.log(listaDeReceita)
+}
+
 closeModalEarnings.addEventListener('click', () => {
-    closeModalReceita()
+    closeModalRevenue()
 })
 
 addingEarnings.addEventListener('click', () => {
-    let descriptionWin = document.getElementById('descriptionWin').value
-    let winValue = document.getElementById('winValue').value
-
-    document.getElementById('description').innerHTML = descriptionWin
-    document.getElementById('value').innerHTML = winValue
-
-    expenseList.push(descriptionWin, winValue)
-    console.log(revenueList)
-
-    closeModalReceita()
+    addingRevenueToList()
+    closeModalRevenue()
 })
 
 botaoReceita.addEventListener('click', () => {
-    let modalExpense = document.querySelector('.modal-receita')
-
-    modalExpense.style.display = 'flex'
+    openModalRevenue()
 })
-
-/* Teste */
