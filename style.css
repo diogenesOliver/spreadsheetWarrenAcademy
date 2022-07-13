@@ -7,7 +7,7 @@
 }
 
 :root {
-  --bg-camp: #F5F6FA;
+  --bg-camp: linear-gradient(to bottom, #F5F6FA, #c7c7c7);
   --bg-camp-second: #b4b4b4;
 
   --color-default: #E02B57;
@@ -134,17 +134,29 @@ h1 {
 }
 
 .informacao {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+
+  align-items: center;
+
   width: 100%;
-  text-align: center;
-  background-color: var(--bg-camp);
-  padding: 16px 0;
-  border-radius: 8px;
+  
   margin-bottom: 40px;
+  padding: 16px 0;
+
+  background: var(--bg-camp);
+
+  border-radius: 0px 0px 10px 10px;
 }
 
 .informacao p {
-  font-size: 19px;
+  font-size: 30px;
   font-weight: bold;
+}
+
+.informacao img{
+  height: 100px;
 }
 
 .lista-transacoes {
