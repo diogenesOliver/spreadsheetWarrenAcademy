@@ -32,6 +32,10 @@ updatingAccountBalance()
 let darkMode = document.getElementById('darkMode')
 let lightMode = document.getElementById('lightMode')
 
+function darkMode(){}
+
+function lightMode(){}
+
 darkMode.addEventListener('click', () => {
     lightMode.style.display = 'block'
     darkMode.style.display = 'none'
