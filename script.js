@@ -27,6 +27,21 @@ function updatingAccountBalance() {
 
 updatingAccountBalance()
 
+/* Dark mode and Light Mode */
+
+let darkMode = document.getElementById('darkMode')
+let lightMode = document.getElementById('lightMode')
+
+darkMode.addEventListener('click', () => {
+    lightMode.style.display = 'block'
+    darkMode.style.display = 'none'
+})
+
+lightMode.addEventListener('click', () => {
+    darkMode.style.display = 'block'
+    lightMode.style.display = 'none'
+})
+
 /* Despesas - Modal*/
 
 function closeModal() {
