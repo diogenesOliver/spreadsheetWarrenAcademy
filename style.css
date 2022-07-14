@@ -152,6 +152,24 @@ h1 {
   border-radius: 0px 0px 10px 10px;
 }
 
+/* Mode */
+
+.mode{
+  position: absolute;
+
+  margin-top: -11rem;
+  margin-right: -50rem;
+}
+
+.mode img{
+  max-height: 30px;
+  cursor: pointer;
+}
+
+.mode img:nth-child(2){
+  display: none;
+}
+
 .informacao p {
   font-size: 30px;
   font-weight: bold;
