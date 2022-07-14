@@ -9,23 +9,22 @@ let addingEarnings = document.getElementById('addingWin')
 
 /* Saldo na conta */
 
-function updatingAccountBalance() {
+let saldoDoUsuario = parseFloat(prompt('Qual seu saldo atual?'))
 
-    let saldoDoUsuario = parseFloat(prompt('Qual seu saldo atual?'))
+function updatingAccountBalance(balance) {
 
-    if (isNaN(saldoDoUsuario)) {
+    if (isNaN(balance)) {
         alert('Digite apenas números neste campo!')
     } else {
         let mostrandoSaldoNaTela = `
-        <p> R$ ${saldoDoUsuario} </p>
+        <p> R$ ${balance} </p>
     `
 
         document.querySelector('.saldo-usuario').innerHTML += mostrandoSaldoNaTela
     }
-
 }
 
-updatingAccountBalance()
+updatingAccountBalance(saldoDoUsuario)
 
 /* Dark mode and Light Mode */
 
@@ -57,7 +56,7 @@ function openModal() {
     modalExpense.style.display = 'flex'
 }
 
-function addingExpenseToList() {
+function addingExpenseToList(balance) {
     let descricaoDaDespesa = document.getElementById('descriptionExpense').value
     let valorDaDespesa = parseFloat(document.getElementById('expenseValue').value.replace(',', '.'))
 
@@ -73,7 +72,8 @@ function addingExpenseToList() {
 
     let informacoesDaDespesa = {
         descricaoDaDespesa,
-        valorDaDespesa
+        valorDaDespesa,
+        balance
     }
 
     if (isNaN(informacoesDaDespesa.valorDaDespesa)) {
@@ -93,7 +93,7 @@ closeModalButton.addEventListener('click', () => {
 
 addingExpense.addEventListener('click', () => {
 
-    addingExpenseToList()
+    addingExpenseToList(saldoDoUsuario)
     closeModal()
 
 })
@@ -114,7 +114,7 @@ function openModalRevenue() {
     modalExpense.style.display = 'flex'
 }
 
-function addingRevenueToList() {
+function addingRevenueToList(balance) {
     let descriptionRevenue = document.getElementById('descriptionWin').value
     let valueRevenue = parseFloat(document.getElementById('winValue').value.replace(',', '.'))
 
@@ -130,7 +130,8 @@ function addingRevenueToList() {
 
     let informacoesDaReceita = {
         descriptionRevenue,
-        valueRevenue
+        valueRevenue,
+        balance
     }
 
 
@@ -149,7 +150,7 @@ closeModalEarnings.addEventListener('click', () => {
 })
 
 addingEarnings.addEventListener('click', () => {
-    addingRevenueToList()
+    addingRevenueToList(saldoDoUsuario)
     closeModalRevenue()
 })
 
