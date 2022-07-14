@@ -4,4 +4,4 @@
 
 <br><br>
 
-<img src='./assets/images-from-readme/main.png'>
+<img src='./assets/images-from-readme/main-screen.png'>
