@@ -7,6 +7,26 @@ let closeModalEarnings = document.querySelector('.closeModalEarnings')
 let addingExpense = document.getElementById('addingExpense')
 let addingEarnings = document.getElementById('addingWin')
 
+/* Saldo na conta */
+
+function updatingAccountBalance() {
+
+    let saldoDoUsuario = parseFloat(prompt('Qual seu saldo atual?'))
+
+    if (isNaN(saldoDoUsuario)) {
+        alert('Digite apenas números neste campo!')
+    } else {
+        let mostrandoSaldoNaTela = `
+        <p> R$ ${saldoDoUsuario} </p>
+    `
+
+        document.querySelector('.saldo-usuario').innerHTML += mostrandoSaldoNaTela
+    }
+
+}
+
+updatingAccountBalance()
+
 /* Despesas - Modal*/
 
 function closeModal() {
@@ -27,7 +47,7 @@ function addingExpenseToList() {
     <tr id="information">
         <td class='coluna-descricao'> ${descricaoDaDespesa} </td>
         <td class='coluna-categoria'>Despesa</td>
-        <td class='coluna-valor'>R$ ${valorDaDespesa} </td>
+        <td class='coluna-valor cor-valor-despesa'> - R$ ${valorDaDespesa} </td>
     </tr>
   `
 
@@ -84,7 +104,7 @@ function addingRevenueToList() {
     <tr id="information">
         <td class='coluna-descricao'> ${descriptionRevenue} </td>
         <td class='coluna-categoria'>Receita</td>
-        <td class='coluna-valor'>R$ ${valueRevenue} </td>
+        <td class='coluna-valor cor-valor-receita'>+ R$ ${valueRevenue} </td>
     </tr>
   `
 
