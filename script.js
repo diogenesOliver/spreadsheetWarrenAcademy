@@ -31,14 +31,30 @@ updatingAccountBalance(saldoDoUsuario)
 let darkMode = document.getElementById('darkMode')
 let lightMode = document.getElementById('lightMode')
 
-darkMode.addEventListener('click', () => {
+function styleDarkMode(){
     lightMode.style.display = 'block'
     darkMode.style.display = 'none'
+
+    let body = document.body
+
+    body.style.background = `#1C1C1C`
+}
+
+function styleLightMode(){
+    darkMode.style.display = 'block'
+    lightMode.style.display = 'none'
+
+    let body = document.body
+
+    body.style.background = `white`
+}
+
+darkMode.addEventListener('click', () => {
+    styleDarkMode()
 })
 
 lightMode.addEventListener('click', () => {
-    darkMode.style.display = 'block'
-    lightMode.style.display = 'none'
+    styleLightMode()
 })
 
 /* Despesas - Modal*/
