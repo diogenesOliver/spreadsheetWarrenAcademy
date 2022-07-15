@@ -31,9 +31,6 @@ updatingAccountBalance(saldoDoUsuario)
 let darkMode = document.getElementById('darkMode')
 let lightMode = document.getElementById('lightMode')
 
-/* function darkMode(){}
-function lightMode(){} */
-
 darkMode.addEventListener('click', () => {
     lightMode.style.display = 'block'
     darkMode.style.display = 'none'
@@ -68,21 +65,21 @@ function addingExpenseToList(balance) {
     </tr>
   `
 
-    let listaDeDespesas = []
+    let informacoesDaDespesa = [
+        balance,
+        {
+            descricaoDaDespesa,
+            valorDaDespesa
+        }
+    ]
 
-    let informacoesDaDespesa = {
-        descricaoDaDespesa,
-        valorDaDespesa,
-        balance
-    }
 
-    if (isNaN(informacoesDaDespesa.valorDaDespesa)) {
+    if (isNaN(informacoesDaDespesa[1].valorDaDespesa)) {
         alert('Digite apenas númeos neste campo')
     } else {
         document.getElementById('lista-transacoes-conteudo').innerHTML += expenseElement
 
-        listaDeDespesas.push(informacoesDaDespesa)
-        console.log(listaDeDespesas)
+        console.log(informacoesDaDespesa)
     }
 }
 
@@ -126,22 +123,20 @@ function addingRevenueToList(balance) {
     </tr>
   `
 
-    let listaDeReceita = []
+    let informacoesDaReceita = [
+        balance,
+        {
+            descriptionRevenue,
+            valueRevenue
+        }
+    ]
 
-    let informacoesDaReceita = {
-        descriptionRevenue,
-        valueRevenue,
-        balance
-    }
-
-
-    if (isNaN(informacoesDaReceita.valueRevenue)) {
+    if (isNaN(informacoesDaReceita[1].valueRevenue)) {
         alert('Digite apenas númeos neste campo')
     } else {
         document.getElementById('lista-transacoes-conteudo').innerHTML += revenueElement
 
-        listaDeReceita.push(informacoesDaReceita)
-        console.log(listaDeReceita)
+        console.log(informacoesDaReceita)
     }
 }
 
