@@ -189,11 +189,15 @@ h1 {
 
 .lista-transacoes .coluna-descricao {
   text-align: left;
+
+  color: #686868;
 }
 
 .lista-transacoes .coluna-categoria {
   text-align: center;
   text-transform: capitalize;
+
+  color: #686868;
 }
 
 .lista-transacoes .coluna-valor {
