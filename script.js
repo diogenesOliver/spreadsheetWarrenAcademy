@@ -1,5 +1,5 @@
-let botaoDespesa = document.getElementById('botao-despesa')
-let botaoReceita = document.getElementById('botao-receita')
+let buttonExpense = document.getElementById('botao-despesa')
+let buttonLace = document.getElementById('botao-receita')
 
 let closeModalButton = document.getElementById('closeModal')
 let closeModalEarnings = document.querySelector('.closeModalEarnings')
@@ -9,22 +9,22 @@ let addingEarnings = document.getElementById('addingWin')
 
 /* Saldo na conta */
 
-let saldoDoUsuario = parseFloat(prompt('Qual seu saldo atual?'))
+let userBalance = parseFloat(prompt('Qual seu saldo atual?'))
 
 function updatingAccountBalance(balance) {
 
     if (isNaN(balance)) {
         alert('Digite apenas números neste campo!')
     } else {
-        let mostrandoSaldoNaTela = `
+        let balanceDisplayedOnScreen = `
         <p> R$ ${balance} </p>
     `
 
-        document.querySelector('.saldo-usuario').innerHTML += mostrandoSaldoNaTela
+        document.querySelector('.saldo-usuario').innerHTML += balanceDisplayedOnScreen
     }
 }
 
-updatingAccountBalance(saldoDoUsuario)
+updatingAccountBalance(userBalance)
 
 /* Dark mode and Light Mode */
 
@@ -70,32 +70,32 @@ function openModal() {
 }
 
 function addingExpenseToList(balance) {
-    let descricaoDaDespesa = document.getElementById('descriptionExpense').value
-    let valorDaDespesa = parseFloat(document.getElementById('expenseValue').value.replace(',', '.'))
+    let descriptionOfExpense = document.getElementById('descriptionExpense').value
+    let expenseAmount = parseFloat(document.getElementById('expenseValue').value.replace(',', '.'))
 
     let expenseElement = `
     <tr id="information">
-        <td class='coluna-descricao'> ${descricaoDaDespesa} </td>
+        <td class='coluna-descricao'> ${descriptionOfExpense} </td>
         <td class='coluna-categoria'>Despesa</td>
-        <td class='coluna-valor cor-valor-despesa'> - R$ ${valorDaDespesa} </td>
+        <td class='coluna-valor cor-valor-despesa'> - R$ ${expenseAmount} </td>
     </tr>
   `
 
-    let informacoesDaDespesa = [
+    let expenseInformation = [
         balance,
         {
-            descricaoDaDespesa,
-            valorDaDespesa
+            descriptionOfExpense,
+            expenseAmount
         }
     ]
 
 
-    if (isNaN(informacoesDaDespesa[1].valorDaDespesa)) {
+    if (isNaN(expenseInformation[1].expenseAmount)) {
         alert('Digite apenas númeos neste campo')
     } else {
         document.getElementById('lista-transacoes-conteudo').innerHTML += expenseElement
 
-        console.log(informacoesDaDespesa)
+        console.log(expenseInformation)
     }
 }
 
@@ -105,13 +105,11 @@ closeModalButton.addEventListener('click', () => {
 })
 
 addingExpense.addEventListener('click', () => {
-
-    addingExpenseToList(saldoDoUsuario)
+    addingExpenseToList(userBalance)
     closeModal()
-
 })
 
-botaoDespesa.addEventListener('click', () => {
+buttonExpense.addEventListener('click', () => {
     openModal()
 })
 
@@ -128,31 +126,31 @@ function openModalRevenue() {
 }
 
 function addingRevenueToList(balance) {
-    let descriptionRevenue = document.getElementById('descriptionWin').value
+    let incomeDescription = document.getElementById('descriptionWin').value
     let valueRevenue = parseFloat(document.getElementById('winValue').value.replace(',', '.'))
 
     let revenueElement = `
     <tr id="information">
-        <td class='coluna-descricao'> ${descriptionRevenue} </td>
+        <td class='coluna-descricao'> ${incomeDescription} </td>
         <td class='coluna-categoria'>Receita</td>
         <td class='coluna-valor cor-valor-receita'>+ R$ ${valueRevenue} </td>
     </tr>
   `
 
-    let informacoesDaReceita = [
+    let incomeInformation = [
         balance,
         {
-            descriptionRevenue,
+            incomeDescription,
             valueRevenue
         }
     ]
 
-    if (isNaN(informacoesDaReceita[1].valueRevenue)) {
+    if (isNaN(incomeInformation[1].valueRevenue)) {
         alert('Digite apenas númeos neste campo')
     } else {
         document.getElementById('lista-transacoes-conteudo').innerHTML += revenueElement
 
-        console.log(informacoesDaReceita)
+        console.log(incomeInformation)
     }
 }
 
@@ -161,10 +159,10 @@ closeModalEarnings.addEventListener('click', () => {
 })
 
 addingEarnings.addEventListener('click', () => {
-    addingRevenueToList(saldoDoUsuario)
+    addingRevenueToList(userBalance)
     closeModalRevenue()
 })
 
-botaoReceita.addEventListener('click', () => {
+buttonLace.addEventListener('click', () => {
     openModalRevenue()
 })
