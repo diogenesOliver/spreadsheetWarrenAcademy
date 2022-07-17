@@ -31,30 +31,28 @@ updatingAccountBalance(userBalance)
 let darkMode = document.getElementById('darkMode')
 let lightMode = document.getElementById('lightMode')
 
-function styleDarkMode(){
+let pageBody = document.body
+
+function styleDarkMode(body){
     lightMode.style.display = 'block'
     darkMode.style.display = 'none'
-
-    let body = document.body
 
     body.style.background = `#1C1C1C`
 }
 
-function styleLightMode(){
+function styleLightMode(body){
     darkMode.style.display = 'block'
     lightMode.style.display = 'none'
-
-    let body = document.body
 
     body.style.background = `white`
 }
 
 darkMode.addEventListener('click', () => {
-    styleDarkMode()
+    styleDarkMode(pageBody)
 })
 
 lightMode.addEventListener('click', () => {
-    styleLightMode()
+    styleLightMode(pageBody)
 })
 
 /* Despesas - Modal*/
