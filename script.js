@@ -9,6 +9,12 @@ let addingEarnings = document.getElementById('addingWin')
 
 /* Saldo na conta */
 
+let incomeList = []
+let expenseList = []
+
+let listOfValuesOfExpense = []
+let listOfValuesOfIncome = []
+
 let userBalance = parseFloat(prompt('Qual seu saldo atual?'))
 
 function updatingAccountBalance(balance) {
@@ -70,8 +76,6 @@ function openModal() {
     modalExpense.style.display = 'flex'
 }
 
-let expenseList = []
-
 function addingExpenseToList(balance) {
     let descriptionOfExpense = document.getElementById('descriptionExpense').value
     let expenseAmount = parseFloat(document.getElementById('expenseValue').value)
@@ -89,6 +93,7 @@ function addingExpenseToList(balance) {
 
     let objectExpense = {
         balance,
+        category: 'Despesa',
         descriptionOfExpense,
         expenseAmount
     }
@@ -103,9 +108,11 @@ function addingExpenseToList(balance) {
         alert('Digite apenas números neste campo')
     } else {
         document.getElementById('lista-transacoes-conteudo').innerHTML += expenseElement
-        expenseList.push(objectExpense)
 
-        console.log(expenseList)
+        expenseList.push(objectExpense)
+        listOfValuesOfExpense.push(objectExpense.expenseAmount)
+
+        console.log(expenseList, listOfValuesOfExpense)
     }
 }
 
@@ -135,8 +142,6 @@ function openModalRevenue() {
     modalExpense.style.display = 'flex'
 }
 
-let incomeList = []
-
 function addingRevenueToList(balance) {
     let incomeDescription = document.getElementById('descriptionWin').value
     let valueRevenue = parseFloat(document.getElementById('winValue').value.replace(',', '.'))
@@ -154,6 +159,7 @@ function addingRevenueToList(balance) {
 
     let objectIncome = {
         balance,
+        category: 'Receita',
         incomeDescription,
         valueRevenue
     }
@@ -168,9 +174,11 @@ function addingRevenueToList(balance) {
         alert('Digite apenas números neste campo')
     } else {
         document.getElementById('lista-transacoes-conteudo').innerHTML += revenueElement
+        
         incomeList.push(objectIncome)
+        listOfValuesOfIncome.push(objectIncome.valueRevenue)
 
-        console.log(incomeList)
+        console.log(incomeList, listOfValuesOfIncome)
     }
 }
 
