@@ -32,12 +32,12 @@
 
         <div>
           <p> Descrição</p>
-          <input type="text" placeholder="Descrição" id="descriptionExpense">
+          <input type="text" placeholder="Descrição" id="descriptionExpense" onfocus="this.value='';">
         </div>
 
         <div>
           <p> Valor </p>
-          <input type="text" placeholder="Valor em R$" id="expenseValue">
+          <input type="text" placeholder="Valor em R$" id="expenseValue" onfocus="this.value='';">
         </div>
 
         <div>
@@ -62,17 +62,18 @@
 
         <div>
           <p> Descrição</p>
-          <input type="text" placeholder="Descrição..." id="descriptionWin">
+          <input type="text" placeholder="Descrição..." id="descriptionWin" onfocus="this.value='';">
         </div>
 
         <div>
           <p> Valor </p>
-          <input type="text" placeholder="Valor em R$" id="winValue">
+          <input type="text" placeholder="Valor em R$" id="winValue" onfocus="this.value='';">
         </div>
 
         <div>
           <button type="submit" id="addingWin"> Adicionar </button>
         </div>
+        
       </div>
 
       <div class='informacao'>
@@ -88,7 +89,7 @@
 
         <div class="saldo-usuario">
           <h1>Planilha de gastos</h1>
-          <small> Saldo inicial </small>
+          <small> Saldo atual </small>
         </div>
 
       </div>
