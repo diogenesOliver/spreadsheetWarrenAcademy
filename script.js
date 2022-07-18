@@ -70,9 +70,11 @@ function openModal() {
     modalExpense.style.display = 'flex'
 }
 
+let expenseList = []
+
 function addingExpenseToList(balance) {
     let descriptionOfExpense = document.getElementById('descriptionExpense').value
-    let expenseAmount = parseFloat(document.getElementById('expenseValue').value.replace(',', '.'))
+    let expenseAmount = parseFloat(document.getElementById('expenseValue').value)
 
     let expenseElement = `
     <tr id="information">
@@ -85,26 +87,25 @@ function addingExpenseToList(balance) {
     </tr>
   `
 
-    let expenseInformation = [
+    let objectExpense = {
         balance,
-        {
-            descriptionOfExpense,
-            expenseAmount
-        }
-    ]
+        descriptionOfExpense,
+        expenseAmount
+    }
 
-    let updatedBalanceWithExpense = balance - expenseInformation[1].expenseAmount
+    let updatedBalanceWithExpense = balance - objectExpense.expenseAmount
 
     let showingUpdatedBalanceWithExpense = `
         <p> R$ ${updatedBalanceWithExpense} </p>
     `
 
-    if (isNaN(expenseInformation[1].expenseAmount)) {
+    if (isNaN(objectExpense.expenseAmount)) {
         alert('Digite apenas números neste campo')
     } else {
         document.getElementById('lista-transacoes-conteudo').innerHTML += expenseElement
+        expenseList.push(objectExpense)
 
-        console.log(expenseInformation)
+        console.log(expenseList)
     }
 }
 
@@ -134,6 +135,8 @@ function openModalRevenue() {
     modalExpense.style.display = 'flex'
 }
 
+let incomeList = []
+
 function addingRevenueToList(balance) {
     let incomeDescription = document.getElementById('descriptionWin').value
     let valueRevenue = parseFloat(document.getElementById('winValue').value.replace(',', '.'))
@@ -149,26 +152,25 @@ function addingRevenueToList(balance) {
     </tr>
   `
 
-    let incomeInformation = [
+    let objectIncome = {
         balance,
-        {
-            incomeDescription,
-            valueRevenue
-        }
-    ]
+        incomeDescription,
+        valueRevenue
+    }
 
-    let updatedBalanceWithRevenue = balance - incomeInformation[1].valueRevenue
+    let updatedBalanceWithRevenue = balance - objectIncome.valueRevenue
 
     let showingUpdatedBalanceWithRevenue = `
         <p> R$ ${updatedBalanceWithRevenue} </p>
     `
 
-    if (isNaN(incomeInformation[1].valueRevenue)) {
+    if (isNaN(objectIncome.valueRevenue)) {
         alert('Digite apenas números neste campo')
     } else {
         document.getElementById('lista-transacoes-conteudo').innerHTML += revenueElement
+        incomeList.push(objectIncome)
 
-        console.log(incomeInformation)
+        console.log(incomeList)
     }
 }
 
