@@ -17,7 +17,10 @@ function updatingAccountBalance(balance) {
         alert('Digite apenas números neste campo!')
     } else {
         let balanceDisplayedOnScreen = `
-        <p> R$ ${balance} </p>
+        <p> ${balance.toLocaleString('pt-br',{
+            style: 'currency',
+            currency:'BRL'
+        })} </p>
     `
 
         document.querySelector('.saldo-usuario').innerHTML += balanceDisplayedOnScreen
@@ -75,7 +78,10 @@ function addingExpenseToList(balance) {
     <tr id="information">
         <td class='coluna-descricao'> ${descriptionOfExpense} </td>
         <td class='coluna-categoria'>Despesa</td>
-        <td class='coluna-valor cor-valor-despesa'> - R$ ${expenseAmount} </td>
+        <td class='coluna-valor cor-valor-despesa'> - ${expenseAmount.toLocaleString('pt-br',{
+            style: 'currency',
+            currency:'BRL'
+        })} </td>
     </tr>
   `
 
@@ -87,9 +93,14 @@ function addingExpenseToList(balance) {
         }
     ]
 
+    let updatedBalanceWithExpense = balance - expenseInformation[1].expenseAmount
+
+    let showingUpdatedBalanceWithExpense = `
+        <p> R$ ${updatedBalanceWithExpense} </p>
+    `
 
     if (isNaN(expenseInformation[1].expenseAmount)) {
-        alert('Digite apenas númeos neste campo')
+        alert('Digite apenas números neste campo')
     } else {
         document.getElementById('lista-transacoes-conteudo').innerHTML += expenseElement
 
@@ -131,7 +142,10 @@ function addingRevenueToList(balance) {
     <tr id="information">
         <td class='coluna-descricao'> ${incomeDescription} </td>
         <td class='coluna-categoria'>Receita</td>
-        <td class='coluna-valor cor-valor-receita'>+ R$ ${valueRevenue} </td>
+        <td class='coluna-valor cor-valor-receita'>+ ${valueRevenue.toLocaleString('pt-br',{
+            style: 'currency',
+            currency:'BRL'
+        })} </td>
     </tr>
   `
 
@@ -143,8 +157,14 @@ function addingRevenueToList(balance) {
         }
     ]
 
+    let updatedBalanceWithRevenue = balance - incomeInformation[1].valueRevenue
+
+    let showingUpdatedBalanceWithRevenue = `
+        <p> R$ ${updatedBalanceWithRevenue} </p>
+    `
+
     if (isNaN(incomeInformation[1].valueRevenue)) {
-        alert('Digite apenas númeos neste campo')
+        alert('Digite apenas números neste campo')
     } else {
         document.getElementById('lista-transacoes-conteudo').innerHTML += revenueElement
 
