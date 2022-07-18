@@ -6,6 +6,10 @@
   margin: 0 auto;
 }
 
+body{
+  background-color: #1C1C1C;
+}
+
 :root {
   --bg-camp: linear-gradient(to bottom, #F5F6FA, #c7c7c7);
   --bg-camp-second: #b4b4b4;
@@ -170,7 +174,7 @@ h1 {
   cursor: pointer;
 }
 
-.mode img:nth-child(2){
+.mode img:nth-child(1){
   display: none;
 }
 
