@@ -6,7 +6,7 @@
   margin: 0 auto;
 }
 
-body{
+body {
   background-color: #1C1C1C;
 }
 
@@ -114,7 +114,7 @@ h2 {
 
 }
 
-.closeModalEarnings{
+.closeModalEarnings {
   cursor: pointer;
 }
 
@@ -155,7 +155,7 @@ h1 {
   align-items: center;
 
   width: 100%;
-  
+
   margin-bottom: 40px;
   padding: 16px 0;
 
@@ -166,19 +166,19 @@ h1 {
 
 /* Mode */
 
-.mode{
+.mode {
   position: absolute;
 
   margin-top: -11rem;
   margin-right: -48rem;
 }
 
-.mode img{
+.mode img {
   max-height: 30px;
   cursor: pointer;
 }
 
-.mode img:nth-child(1){
+.mode img:nth-child(1) {
   display: none;
 }
 
@@ -187,7 +187,7 @@ h1 {
   font-weight: bold;
 }
 
-.informacao img{
+.informacao img {
   height: 100px;
 }
 
@@ -212,11 +212,11 @@ h1 {
   text-align: right;
 }
 
-.cor-valor-despesa{
+.cor-valor-despesa {
   color: rgb(228, 86, 86);
 }
 
-.cor-valor-receita{
+.cor-valor-receita {
   color: rgb(87, 177, 87);
 }
 
@@ -268,8 +268,39 @@ h1 {
 
 @media only screen and (max-width: 600px) {
 
-  .botoes,
-  .botoes button {
-    width: 100%;
+  body{
+    overflow: hidden;
+  }
+
+  .botoes{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+  }
+
+  .botoes button{
+    height: 2.5 rem;
+    width: 10%;
+
+    font-size: 1rem;
+  }
+
+  .saldo-usuario h1 {
+    font-size: 1.5rem;
+  }
+
+  .saldo-usuario p {
+    font-size: 1.5rem;
+  }
+
+  .informacao div img {
+    height: 5rem;
+    margin-right: 3rem;
+  }
+
+  .mode {
+    margin-top: -13rem;
+    margin-left: -30rem;
   }
 }
