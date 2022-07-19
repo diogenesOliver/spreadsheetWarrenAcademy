@@ -7,33 +7,11 @@ let closeModalEarnings = document.querySelector('.closeModalEarnings')
 let addingExpense = document.getElementById('addingExpense')
 let addingEarnings = document.getElementById('addingWin')
 
-/* Saldo na conta */
-
 let incomeList = []
 let expenseList = []
 
 let listOfValuesOfExpense = []
 let listOfValuesOfIncome = []
-
-let userBalance = parseFloat(prompt('Qual seu saldo atual?'))
-
-function updatingAccountBalance(balance) {
-
-    if (isNaN(balance)) {
-        alert('Digite apenas números neste campo!')
-    } else {
-        let balanceDisplayedOnScreen = `
-        <p> ${balance.toLocaleString('pt-br',{
-            style: 'currency',
-            currency:'BRL'
-        })} </p>
-    `
-
-        document.querySelector('.saldo-usuario').innerHTML += balanceDisplayedOnScreen
-    }
-}
-
-updatingAccountBalance(userBalance)
 
 /* Dark mode and Light Mode */
 
@@ -98,12 +76,6 @@ function addingExpenseToList(balance) {
         expenseAmount
     }
 
-    let updatedBalanceWithExpense = balance - objectExpense.expenseAmount
-
-    let showingUpdatedBalanceWithExpense = `
-        <p> R$ ${updatedBalanceWithExpense} </p>
-    `
-
     if (isNaN(objectExpense.expenseAmount)) {
         alert('Digite apenas números neste campo')
     } else {
@@ -112,10 +84,9 @@ function addingExpenseToList(balance) {
         expenseList.push(objectExpense)
         listOfValuesOfExpense.push(objectExpense.expenseAmount)
 
-        console.log(expenseList, listOfValuesOfExpense)
+        console.log(expenseList)
     }
 }
-
 
 closeModalButton.addEventListener('click', () => {
     closeModal()
@@ -164,12 +135,6 @@ function addingRevenueToList(balance) {
         valueRevenue
     }
 
-    let updatedBalanceWithRevenue = balance - objectIncome.valueRevenue
-
-    let showingUpdatedBalanceWithRevenue = `
-        <p> R$ ${updatedBalanceWithRevenue} </p>
-    `
-
     if (isNaN(objectIncome.valueRevenue)) {
         alert('Digite apenas números neste campo')
     } else {
@@ -178,7 +143,7 @@ function addingRevenueToList(balance) {
         incomeList.push(objectIncome)
         listOfValuesOfIncome.push(objectIncome.valueRevenue)
 
-        console.log(incomeList, listOfValuesOfIncome)
+        console.log(incomeList)
     }
 }
 
@@ -194,3 +159,25 @@ addingEarnings.addEventListener('click', () => {
 buttonLace.addEventListener('click', () => {
     openModalRevenue()
 })
+
+/* Atualizando o saldo do usuário */
+
+let userBalance = parseFloat(prompt('Qual seu saldo atual?'))
+
+function updatingAccountBalance(balance) {
+
+    if (isNaN(balance)) {
+        alert('Digite apenas números neste campo!')
+    } else {
+        let balanceDisplayedOnScreen = `
+        <p> ${balance.toLocaleString('pt-br',{
+            style: 'currency',
+            currency:'BRL'
+        })} </p>
+    `
+
+        document.querySelector('.saldo-usuario').innerHTML += balanceDisplayedOnScreen
+    }
+}
+
+updatingAccountBalance(userBalance)
