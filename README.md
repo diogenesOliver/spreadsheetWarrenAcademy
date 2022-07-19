@@ -4,7 +4,7 @@
 
 <br>
 
-<img src='./assets/images-from-readme/main-screen.png'>
+<img src='./assets/images-from-readme/main-screen-dark.png'>
 
 <br><br>
 
