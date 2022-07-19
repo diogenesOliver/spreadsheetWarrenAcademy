@@ -10,4 +10,4 @@
 
 <strong> THIS PAGE IS NOT RESPONSIVE: </strong>
 
-Deploy: <a> https://eloquent-longma-30a99e.netlify.app </a>
+Deploy: <a> https://taupe-twilight-2c7e58.netlify.app </a>
