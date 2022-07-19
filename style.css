@@ -38,8 +38,10 @@ body{
 
   gap: 2rem;
 
-  margin-top: 20%;
+  margin-top: 17%;
+
   padding: 20px;
+  padding-bottom: 40px;
 
   width: 500px;
   height: 370px;
@@ -89,9 +91,11 @@ h2 {
   font-size: 17px;
 
   height: 2.7rem;
-  width: 100%;
+  width: 50%;
 
-  border-radius: 5px;
+  margin-left: 25%;
+
+  border-radius: 20px;
 
   cursor: pointer;
 
@@ -119,7 +123,7 @@ h2 {
 @keyframes animando-menu {
   0% {
     opacity: 0;
-    transform: translate3d(110px, 0, 0);
+    transform: translate3d(0, 110px, 0);
   }
 
   100% {
@@ -236,7 +240,7 @@ h1 {
 .botoes button {
   padding: 8px 24px;
   border: 0;
-  border-radius: 8px;
+  border-radius: 20px;
   font-weight: 500;
   line-height: 24px;
   font-size: 18px;
@@ -253,6 +257,8 @@ h1 {
 .botoes .despesa {
   background-color: #fff;
   color: #E02B57;
+
+  margin-right: 30px;
 }
 
 .botoes .receita {
