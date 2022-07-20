@@ -12,8 +12,7 @@ let balanceId = document.getElementById('balanceId')
 let incomeList = []
 let expenseList = []
 
-let listOfValuesOfExpense = []
-let listOfValuesOfIncome = []
+let lastAddedValue = []
 
 /* Dark mode and Light Mode */
 
@@ -84,7 +83,9 @@ function addingExpenseToList(balance) {
         document.getElementById('lista-transacoes-conteudo').innerHTML += expenseElement
 
         expenseList.push(objectExpense)
-        listOfValuesOfExpense.push(objectExpense.expenseAmount)
+        lastAddedValue.push(objectExpense.expenseAmount)
+
+        console.log(lastAddedValue)
 
     }
 }
@@ -144,7 +145,9 @@ function addingRevenueToList(balance) {
         document.getElementById('lista-transacoes-conteudo').innerHTML += revenueElement
 
         incomeList.push(objectIncome)
-        listOfValuesOfIncome.push(objectIncome.valueRevenue)
+        lastAddedValue.push(objectIncome.valueRevenue)
+
+        console.log(lastAddedValue)
     }
 }
 
@@ -185,7 +188,7 @@ updatingAccountBalance(userBalance)
 /* Updtating Balance */
 
 function balanceWithIncome(balance){
-    let balanceSum = balance + (listOfValuesOfIncome[listOfValuesOfIncome.length - 1])
+    let balanceSum = balance + (lastAddedValue[lastAddedValue.length - 1])
 
     balanceId.innerText = balanceSum.toLocaleString('pt-br', {
         style: 'currency',
@@ -194,7 +197,7 @@ function balanceWithIncome(balance){
 }
 
 function balanceWithExpense(balance){
-    let subtractBalance = balance - (listOfValuesOfExpense[listOfValuesOfExpense.length - 1])
+    let subtractBalance = balance - (lastAddedValue[lastAddedValue.length - 1])
 
     balanceId.innerText = subtractBalance.toLocaleString('pt-br', {
         style: 'currency',
