@@ -269,7 +269,15 @@ h1 {
 @media only screen and (max-width: 600px) {
 
   body{
-    overflow: hidden;
+    overflow-x: hidden;
+  }
+
+  .modal{
+    max-width: 300px;
+  }
+
+  .head-modal{
+    gap: 12rem;
   }
 
   .botoes{
@@ -284,6 +292,17 @@ h1 {
     width: 10%;
 
     font-size: 1rem;
+  }
+  
+  .botoes .despesa{
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  .coluna-descricao,
+  .coluna-categoria,
+  .coluna-valor{
+    font-size: 12px;
   }
 
   .saldo-usuario h1 {
