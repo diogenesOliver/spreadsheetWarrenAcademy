@@ -10,4 +10,4 @@
 
 <strong> THIS PAGE IS NOT RESPONSIVE: </strong>
 
-Deploy: <a> https://taupe-twilight-2c7e58.netlify.app </a>
+Deploy: <a> https://coruscating-klepon-e30f87.netlify.app </a>
