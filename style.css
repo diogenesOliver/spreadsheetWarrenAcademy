@@ -30,7 +30,7 @@ body {
 .modal {
   font-family: 'Nunito';
 
-  position: absolute;
+  position: fixed;
 
   display: none;
   flex-direction: column;
