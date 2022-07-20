@@ -7,6 +7,8 @@ let closeModalEarnings = document.querySelector('.closeModalEarnings')
 let addingExpense = document.getElementById('addingExpense')
 let addingEarnings = document.getElementById('addingWin')
 
+let balanceId = document.getElementById('balanceId')
+
 let incomeList = []
 let expenseList = []
 
@@ -20,14 +22,14 @@ let lightMode = document.getElementById('lightMode')
 
 let pageBody = document.body
 
-function styleDarkMode(body){
+function styleDarkMode(body) {
     lightMode.style.display = 'block'
     darkMode.style.display = 'none'
 
     body.style.background = `#1C1C1C`
 }
 
-function styleLightMode(body){
+function styleLightMode(body) {
     darkMode.style.display = 'block'
     lightMode.style.display = 'none'
 
@@ -62,10 +64,10 @@ function addingExpenseToList(balance) {
     <tr id="information">
         <td class='coluna-descricao'> ${descriptionOfExpense} </td>
         <td class='coluna-categoria'>Despesa</td>
-        <td class='coluna-valor cor-valor-despesa'> - ${expenseAmount.toLocaleString('pt-br',{
-            style: 'currency',
-            currency:'BRL'
-        })} </td>
+        <td class='coluna-valor cor-valor-despesa'> - ${expenseAmount.toLocaleString('pt-br', {
+        style: 'currency',
+        currency: 'BRL'
+    })} </td>
     </tr>
   `
 
@@ -84,7 +86,7 @@ function addingExpenseToList(balance) {
         expenseList.push(objectExpense)
         listOfValuesOfExpense.push(objectExpense.expenseAmount)
 
-        console.log(expenseList)
+        console.log(listOfValuesOfExpense)
     }
 }
 
@@ -95,6 +97,8 @@ closeModalButton.addEventListener('click', () => {
 addingExpense.addEventListener('click', () => {
     addingExpenseToList(userBalance)
     closeModal()
+
+    balanceWithExpense(userBalance)
 })
 
 buttonExpense.addEventListener('click', () => {
@@ -121,10 +125,10 @@ function addingRevenueToList(balance) {
     <tr id="information">
         <td class='coluna-descricao'> ${incomeDescription} </td>
         <td class='coluna-categoria'>Receita</td>
-        <td class='coluna-valor cor-valor-receita'>+ ${valueRevenue.toLocaleString('pt-br',{
-            style: 'currency',
-            currency:'BRL'
-        })} </td>
+        <td class='coluna-valor cor-valor-receita'>+ ${valueRevenue.toLocaleString('pt-br', {
+        style: 'currency',
+        currency: 'BRL'
+    })} </td>
     </tr>
   `
 
@@ -139,11 +143,9 @@ function addingRevenueToList(balance) {
         alert('Digite apenas números neste campo')
     } else {
         document.getElementById('lista-transacoes-conteudo').innerHTML += revenueElement
-        
+
         incomeList.push(objectIncome)
         listOfValuesOfIncome.push(objectIncome.valueRevenue)
-
-        console.log(incomeList)
     }
 }
 
@@ -154,6 +156,8 @@ closeModalEarnings.addEventListener('click', () => {
 addingEarnings.addEventListener('click', () => {
     addingRevenueToList(userBalance)
     closeModalRevenue()
+
+    balanceWithIncome(userBalance)
 })
 
 buttonLace.addEventListener('click', () => {
@@ -169,15 +173,32 @@ function updatingAccountBalance(balance) {
     if (isNaN(balance)) {
         alert('Digite apenas números neste campo!')
     } else {
-        let balanceDisplayedOnScreen = `
-        <p> ${balance.toLocaleString('pt-br',{
-            style: 'currency',
-            currency:'BRL'
-        })} </p>
-    `
 
-        document.querySelector('.saldo-usuario').innerHTML += balanceDisplayedOnScreen
+        balanceId.innerText = balance.toLocaleString('pt-br', {
+            style: 'currency',
+            currency: 'BRL'
+        })
     }
 }
 
 updatingAccountBalance(userBalance)
+
+/* Updtating Balance */
+
+function balanceWithIncome(balance){
+    let balanceSum = balance + (listOfValuesOfIncome[listOfValuesOfIncome.length - 1])
+
+    balanceId.innerText = balanceSum.toLocaleString('pt-br', {
+        style: 'currency',
+        currency: 'BRL'
+    })
+}
+
+function balanceWithExpense(balance){
+    let subtractBalance = balance - (listOfValuesOfExpense[listOfValuesOfExpense.length - 1])
+
+    balanceId.innerText = subtractBalance.toLocaleString('pt-br', {
+        style: 'currency',
+        currency: 'BRL'
+    })
+}
