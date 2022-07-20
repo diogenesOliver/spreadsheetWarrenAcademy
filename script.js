@@ -86,7 +86,6 @@ function addingExpenseToList(balance) {
         expenseList.push(objectExpense)
         listOfValuesOfExpense.push(objectExpense.expenseAmount)
 
-        console.log(listOfValuesOfExpense)
     }
 }
 
