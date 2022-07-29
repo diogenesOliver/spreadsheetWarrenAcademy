@@ -1,30 +1,47 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@700&display=swap')
 
-* 
+*
   font-family: Nunito
   color: #2f2f33
   margin: 0 auto
 
-
-body 
+body
   background-color: #1C1C1C
-
 
 $--bg-camp: linear-gradient(to bottom, #F5F6FA, #c7c7c7)
 $--bg-camp-second: #b4b4b4
 $--color-default: #E02B57
 
-.pagina 
-  max-width: 896px
-  padding: 0 16px
-  height: 100vh
-
+@mixin column-space-between()
   display: flex
   flex-direction: column
   justify-content: space-between
 
+@mixin row-space-around()
+  display: flex
+  flex-direction: row
+  justify-content: space-around
 
-.modal 
+@mixin button-default-style()
+  padding: 8px 24px
+  border: 0
+  border-radius: 20px
+  font-weight: 500
+  line-height: 24px
+  font-size: 15px
+  min-width: 200px
+  cursor: pointer
+  letter-spacing: 0.4px
+
+.pagina
+  @include column-space-between()
+
+  max-width: 896px
+  height: 100vh
+
+  padding: 0 16px
+
+.modal
   font-family: 'Nunito'
 
   position: fixed
@@ -49,8 +66,7 @@ $--color-default: #E02B57
 
   animation: animando-menu .3s
 
-
-#closeModal 
+#closeModal
   float: right
 
   font-size: 20px
@@ -58,12 +74,10 @@ $--color-default: #E02B57
 
   font-weight: bold
 
-
-.modal div 
+.modal div
   width: 100%
 
-
-.modal div input 
+.modal div input
   border: none
 
   height: 40px
@@ -73,15 +87,13 @@ $--color-default: #E02B57
 
   border-radius: 5px
 
-
 .modal div p,
-h2 
+h2
   color: white
 
   font-weight: bold
 
-
-.modal button 
+.modal button
   border: none
 
   font-weight: bold
@@ -99,8 +111,7 @@ h2
   background-color: white
   color: $--color-default
 
-
-.head-modal 
+.head-modal
   display: flex
   flex-direction: row
   justify-content: space-around
@@ -109,45 +120,35 @@ h2
 
   gap: 25rem
 
-
-
-.closeModalEarnings 
+.closeModalEarnings
   cursor: pointer
-
 
 /* Animando Modal */
 
-@keyframes animando-menu 
-  0% 
+@keyframes animando-menu
+  0%
     opacity: 0
     transform: translate3d(0, 110px, 0)
-  
 
-  100% 
+  100%
     opacity: 1
     transform: translate3d(0, 0, 0)
-  
 
-
-.conteudo 
+.conteudo
   width: 100%
 
   display: flex
   flex-direction: column
   align-items: center
 
-
-h1 
+h1
   font-size: 51px
   font-weight: bold
   margin-top: 40px
   margin-bottom: 56px
 
-
-.informacao 
-  display: flex
-  flex-direction: row
-  justify-content: space-around
+.informacao
+  @include row-space-around()
 
   align-items: center
 
@@ -160,162 +161,121 @@ h1
 
   border-radius: 0px 0px 10px 10px
 
-
 /* Mode */
 
-.mode 
+.mode
   position: absolute
 
   margin-top: -11rem
   margin-right: -48rem
 
-
-.mode img 
+.mode img
   max-height: 30px
   cursor: pointer
 
-
-.mode img:nth-child(1) 
+.mode img:nth-child(1)
   display: none
 
-
-.informacao p 
+.informacao p
   font-size: 30px
   font-weight: bold
 
-
-.informacao img 
+.informacao img
   height: 100px
 
-
-.lista-transacoes 
+.lista-transacoes
   width: 100%
 
-
-.lista-transacoes .coluna-descricao 
+.lista-transacoes .coluna-descricao
   text-align: left
 
   color: #686868
 
-
-.lista-transacoes .coluna-categoria 
+.lista-transacoes .coluna-categoria
   text-align: center
   text-transform: capitalize
 
   color: #686868
 
-
-.lista-transacoes .coluna-valor 
+.lista-transacoes .coluna-valor
   text-align: right
 
-
-.cor-valor-despesa 
+.cor-valor-despesa
   color: rgb(228, 86, 86)
 
-
-.cor-valor-receita 
+.cor-valor-receita
   color: rgb(87, 177, 87)
 
-
-.lista-transacoes th 
+.lista-transacoes th
   padding: 8px 0
 
-
-.lista-transacoes td 
+.lista-transacoes td
   padding: 16px 0
 
-
-.lista-transacoes h3 
+.lista-transacoes h3
   font-size: 14px
   color: #757680
 
-
-.botoes 
+.botoes
   padding: 24px 0
 
-
-.botoes button 
-  padding: 8px 24px
-  border: 0
-  border-radius: 20px
-  font-weight: 500
-  line-height: 24px
-  font-size: 18px
-  min-width: 200px
-  cursor: pointer
-  letter-spacing: 0.4px
-
-
-.botoes button:hover 
+.botoes button:hover
   transform: scale(1.0175)
   opacity: 0.9
 
+.botoes .despesa
+  @include button-default-style()
 
-.botoes .despesa 
   background-color: #fff
   color: #E02B57
 
   margin-right: 30px
 
+.botoes .receita
+  @include button-default-style()
 
-.botoes .receita 
   background-color: #E02B57
   color: #fff
 
-
-@media only screen and (max-width: 600px) 
+@media only screen and (max-width: 600px)
 
   body
     overflow-x: hidden
-  
 
   .modal
     max-width: 300px
-  
 
   .head-modal
     gap: 12rem
-  
 
   .botoes
-    display: flex
-    flex-direction: column
-    justify-content: space-between
-
-  
+    @include column-space-between()
 
   .botoes button
-    height: 2.5 rem
+    height: 2.5rem
     width: 10%
 
     font-size: 1rem
-  
-  
+
   .botoes .despesa
     margin-right: 0
     margin-bottom: 10px
-  
 
   .coluna-descricao,
   .coluna-categoria,
   .coluna-valor
     font-size: 12px
-  
 
-  .saldo-usuario h1 
+  .saldo-usuario h1
     font-size: 1.5rem
-  
 
-  .saldo-usuario p 
+  .saldo-usuario p
     font-size: 1rem
-  
 
-  .informacao div img 
+  .informacao div img
     height: 4.5rem
     margin-right: 3rem
-  
 
-  .mode 
+  .mode
     margin-top: -12rem
     margin-left: -30rem
-  
